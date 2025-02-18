@@ -5,12 +5,13 @@ import Footer from "./components/Footer";
 import HomePage from "./screens/Home";
 
 // lazy imports for code splitting
-const Mission = lazy(() => import("./screens/Mission"));
+const Missions = lazy(() => import("./screens/Missions"));
 const MissionDetail = lazy(() => import("./screens/MissionDetail"));
 const Spaceship = lazy(() => import("./screens/Spaceship"));
 const SpaceshipDetail = lazy(() => import("./screens/SpaceshipDetail"));
 const Capsules = lazy(() => import("./screens/Capsules"));
 const Cores = lazy(() => import("./screens/Cores"));
+const Payloads = lazy(() => import("./screens/Payloads"));
 
 const App = () => {
   return (
@@ -18,12 +19,13 @@ const App = () => {
       <Header />
         <Routes>
           <Route path="/" element={<HomePage/>} exact />
-          <Route path="/mission" element={<Mission/>} />
-          <Route path="/mission/:id" element={<MissionDetail/>} />
+          <Route path="/missions" element={<Missions/>} />
+          <Route path="/missions/:id" element={<MissionDetail/>} />
           <Route path="/spaceship" element={<Spaceship/>} />
           <Route path="/spaceship/:id" element={<SpaceshipDetail/>} />
           <Route path="/capsules" element={<Capsules/>} />
           <Route path="/cores" element={<Cores/>} />
+          <Route path="/payloads" element={<Payloads/>} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       <Footer />
