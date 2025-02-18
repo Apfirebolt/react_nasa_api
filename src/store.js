@@ -5,7 +5,8 @@ import payloadReducer from './features/payload/payloadSlice'
 import missionReducer from './features/mission/missionSlice'
 import rocketReducer from './features/rocket/rocketSlice'
 import shipReducer from './features/ship/shipSlice'
-
+import dragonReducer from './features/dragon/dragonSlice'
+import historyReducer from './features/history/historySlice'
 
 export const store = configureStore({
   reducer: {
@@ -15,5 +16,7 @@ export const store = configureStore({
     missionData: missionReducer,
     rocketData: rocketReducer,
     shipData: shipReducer,
+    dragonData: dragonReducer,
+    historyData: historyReducer,
   },
 })

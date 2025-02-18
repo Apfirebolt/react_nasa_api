@@ -1,20 +1,20 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import dragonService from "./dragonService";
+import historyService from "./historyService";
 
 const initialState = {
-  dragonList: [],
+  historyList: [],
   isError: false,
   isSuccess: false,
   isLoading: false,
   message: "",
 };
 
-// Get Multiple dragons
-export const getDragonData = createAsyncThunk(
-  "dragon/getDragonData",
+// Get Multiple history records
+export const getHistoryData = createAsyncThunk(
+  "history/getHistoryData",
   async (_, thunkAPI) => {
     try {
-      return await dragonService.getDragons();
+      return await historyService.getHistory();
     } catch (error) {
       const message =
         (error.response &&
@@ -28,8 +28,8 @@ export const getDragonData = createAsyncThunk(
   }
 );
 
-export const dragonSlice = createSlice({
-  name: "dragon",
+export const historySlice = createSlice({
+  name: "history",
   initialState,
   reducers: {
     reset: (state) => initialState,
@@ -41,14 +41,14 @@ export const dragonSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getDragonData.pending, (state) => {
+      .addCase(getHistoryData.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(getDragonData.fulfilled, (state, action) => {
+      .addCase(getHistoryData.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.dragonList = action.payload;
+        state.historyList = action.payload;
       })
-      .addCase(getDragonData.rejected, (state, action) => {
+      .addCase(getHistoryData.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload;
@@ -56,5 +56,5 @@ export const dragonSlice = createSlice({
   },
 });
 
-export const { reset, resetVariables } = dragonSlice.actions;
-export default dragonSlice.reducer;
+export const { reset, resetVariables } = historySlice.actions;
+export default historySlice.reducer;

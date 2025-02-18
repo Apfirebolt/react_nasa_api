@@ -13,6 +13,8 @@ const Capsules = lazy(() => import("./screens/Capsules"));
 const Cores = lazy(() => import("./screens/Cores"));
 const Payloads = lazy(() => import("./screens/Payloads"));
 const Rockets = lazy(() => import("./screens/Rocket"));
+const Dragons = lazy(() => import("./screens/Dragons"));
+const History = lazy(() => import("./screens/History"));
 
 const App = () => {
   return (
@@ -28,6 +30,8 @@ const App = () => {
           <Route path="/cores" element={<Cores/>} />
           <Route path="/payloads" element={<Payloads/>} />
           <Route path="/rockets" element={<Rockets/>} />
+          <Route path="/dragons" element={<Dragons/>} />
+          <Route path="/history" element={<History/>} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       <Footer />

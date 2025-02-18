@@ -12,6 +12,8 @@ const menuItems = [
   { key: "6", label: <Link to="/payloads">Payloads</Link> },
   { key: "7", label: <Link to="/missions">Missions</Link> },
   { key: "8", label: <Link to="/rockets">Rockets</Link> },
+  { key: "9", label: <Link to="/dragons">Dragons</Link> },
+  { key: "10", label: <Link to="/history">History</Link> },
 ];
 
 const AppHeader = () => {
