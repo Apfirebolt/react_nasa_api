@@ -12,6 +12,7 @@ const SpaceshipDetail = lazy(() => import("./screens/SpaceshipDetail"));
 const Capsules = lazy(() => import("./screens/Capsules"));
 const Cores = lazy(() => import("./screens/Cores"));
 const Payloads = lazy(() => import("./screens/Payloads"));
+const Rockets = lazy(() => import("./screens/Rocket"));
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/capsules" element={<Capsules/>} />
           <Route path="/cores" element={<Cores/>} />
           <Route path="/payloads" element={<Payloads/>} />
+          <Route path="/rockets" element={<Rockets/>} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       <Footer />

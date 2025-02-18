@@ -3,6 +3,8 @@ import capsuleReducer from './features/capsule/capsuleSlice'
 import coreReducer from './features/core/coreSlice'
 import payloadReducer from './features/payload/payloadSlice'
 import missionReducer from './features/mission/missionSlice'
+import rocketReducer from './features/rocket/rocketSlice'
+import shipReducer from './features/ship/shipSlice'
 
 
 export const store = configureStore({
@@ -11,5 +13,7 @@ export const store = configureStore({
     coreData: coreReducer,
     payloadData: payloadReducer,
     missionData: missionReducer,
+    rocketData: rocketReducer,
+    shipData: shipReducer,
   },
 })
