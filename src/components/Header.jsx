@@ -7,6 +7,7 @@ const menuItems = [
     { key: '1', label: <Link to="/">Home</Link> },
     { key: '2', label: <Link to="/spaceship">Spaceship</Link> },
     { key: '3', label: <Link to="/mission">Mission</Link> },
+    { key: '4', label: <Link to="/capsules">Capsules</Link> },
 ];
 
 const AppHeader = () => {

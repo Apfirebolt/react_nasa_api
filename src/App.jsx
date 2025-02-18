@@ -9,6 +9,7 @@ const Mission = lazy(() => import("./screens/Mission"));
 const MissionDetail = lazy(() => import("./screens/MissionDetail"));
 const Spaceship = lazy(() => import("./screens/Spaceship"));
 const SpaceshipDetail = lazy(() => import("./screens/SpaceshipDetail"));
+const Capsules = lazy(() => import("./screens/Capsules"));
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/mission/:id" element={<MissionDetail/>} />
           <Route path="/spaceship" element={<Spaceship/>} />
           <Route path="/spaceship/:id" element={<SpaceshipDetail/>} />
+          <Route path="/capsules" element={<Capsules/>} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       <Footer />

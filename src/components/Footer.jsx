@@ -1,13 +1,13 @@
-import { Layout } from 'antd';
+import { Layout } from "antd";
 
 const { Footer } = Layout;
 
 const AppFooter = () => {
-    return (
-        <Footer style={{ textAlign: 'center' }}>
-            NASA API ©2025 Created by Amit
-        </Footer>
-    );
+  return (
+    <Footer style={{ textAlign: "center" }}>
+      SPACEX API ©2025 All rights reserved
+    </Footer>
+  );
 };
 
 export default AppFooter;
