@@ -74,6 +74,16 @@ yarn build
 
 This will bundle the application into static files for production.
 
+### Docker Deployment
+
+Create image from the Dockerfile using the command
+
+```
+ docker build -t nasa_image .
+```
+
+Using the Docker desktop tool run the application.
+
 ### Linting
 
 To lint the project, run:
