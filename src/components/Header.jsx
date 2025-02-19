@@ -14,6 +14,7 @@ const menuItems = [
   { key: "8", label: <Link to="/rockets">Rockets</Link> },
   { key: "9", label: <Link to="/dragons">Dragons</Link> },
   { key: "10", label: <Link to="/history">History</Link> },
+  { key: "11", label: <Link to="/landpads">Landing Pads</Link> },
 ];
 
 const AppHeader = () => {

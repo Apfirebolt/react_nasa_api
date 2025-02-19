@@ -7,6 +7,7 @@ import rocketReducer from './features/rocket/rocketSlice'
 import shipReducer from './features/ship/shipSlice'
 import dragonReducer from './features/dragon/dragonSlice'
 import historyReducer from './features/history/historySlice'
+import landingPadReducer from './features/landing/landingPadSlice'
 
 export const store = configureStore({
   reducer: {
@@ -18,5 +19,6 @@ export const store = configureStore({
     shipData: shipReducer,
     dragonData: dragonReducer,
     historyData: historyReducer,
+    landingPadData: landingPadReducer,
   },
 })
