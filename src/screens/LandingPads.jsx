@@ -28,7 +28,7 @@ const LandingPads = () => {
             xs={24}
             sm={12}
             md={8}
-            lg={6}
+            lg={8}
             key={pad.id}
             style={{ marginBottom: "16px" }}
           >
