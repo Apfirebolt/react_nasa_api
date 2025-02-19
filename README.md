@@ -24,6 +24,15 @@ Make sure you have the following installed:
 - [Node.js](https://nodejs.org/) (version 14 or higher)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 
+### Screenshots
+
+Here are some screenshots of the application:
+
+![Screenshot 1](./screenshots/1.png)
+![Screenshot 2](./screenshots/2.png)
+![Screenshot 2](./screenshots/3.png)
+
+
 ### Installation
 
 1. Clone the repository:
