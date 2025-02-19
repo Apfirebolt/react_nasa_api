@@ -1,11 +1,18 @@
-import { Spin } from 'antd';
+import { Spin } from "antd";
 
 const Loader = () => {
-    return (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-            <Spin size="large" />
-        </div>
-    );
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      }}
+    >
+      <Spin size="large" />
+    </div>
+  );
 };
 
 export default Loader;
