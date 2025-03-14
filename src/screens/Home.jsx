@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axiosInstance from "../plugins/interceptor";
+// import userBearStore from "../zustStore";
 import { Card, Typography, List, Drawer, Space, Button } from "antd";
 import Loader from "../components/Loader";
 
@@ -9,6 +10,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [open, setOpen] = useState(true);
   const { Title, Paragraph } = Typography;
+  // const bears = userBearStore((state) => state.bears);
 
   const showDrawer = () => {
     setOpen(true);

@@ -15,6 +15,7 @@ const Dragons = lazy(() => import("./screens/Dragons"));
 const History = lazy(() => import("./screens/History"));
 const LandingPad = lazy(() => import("./screens/LandingPads"));
 const Launch = lazy(() => import("./screens/Launch"));
+const Bear = lazy(() => import("./screens/Bear"));
 const Test = lazy(() => import("./screens/Test"));
 
 const App = () => {
@@ -33,6 +34,7 @@ const App = () => {
           <Route path="/history" element={<History/>} />
           <Route path="/landpads" element={<LandingPad/>} />
           <Route path="/launches" element={<Launch/>} />
+          <Route path="/bear" element={<Bear/>} />
           <Route path="/test" element={<Test/>} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
