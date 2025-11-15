@@ -5,7 +5,6 @@ import { Card } from "antd";
 const LaunchCard = ({ launch }) => {
 
   useEffect(() => {
-    console.log("LaunchCard mounted");
     return () => {
       console.log("LaunchCard unmounted");
     };
