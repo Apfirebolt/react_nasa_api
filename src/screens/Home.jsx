@@ -1,16 +1,23 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import axiosInstance from "../plugins/interceptor";
 // import userBearStore from "../zustStore";
-import { Card, Typography, List, Drawer, Space, Button } from "antd";
+import { Card, Typography, List, Drawer, Space, Button, Modal, Steps, Tour } from "antd";
 import Loader from "../components/Loader";
 
 const Home = () => {
   const [roadsterDetails, setRoadsterDetails] = useState(null);
   const [info, setInfo] = useState(null);
+  const [step, setStep] = useState(0);
   const [loading, setLoading] = useState(true);
   const [open, setOpen] = useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [tourOpen, setTourOpen] = useState(false);
   const { Title, Paragraph } = Typography;
   // const bears = userBearStore((state) => state.bears);
+
+  const infoButtonRef = useRef(null);
+  const stepperButtonRef = useRef(null);
+  const cardRef = useRef(null);
 
   const showDrawer = () => {
     setOpen(true);
@@ -18,6 +25,77 @@ const Home = () => {
   const onClose = () => {
     setOpen(false);
   };
+
+  const showModal = () => {
+    setModalOpen(true);
+    setStep(0);
+  };
+
+  const handleModalOk = () => {
+    if (step < 2) {
+      setStep(step + 1);
+    } else {
+      setModalOpen(false);
+      setStep(0);
+    }
+  };
+
+  const handleModalCancel = () => {
+    setModalOpen(false);
+    setStep(0);
+  };
+
+  const handlePrevious = () => {
+    setStep(step - 1);
+  };
+
+  const steps = [
+    {
+      title: 'Step 1',
+      content: (
+        <div>
+          <Title level={4}>Welcome</Title>
+          <Paragraph>This is the first step of the process.</Paragraph>
+        </div>
+      ),
+    },
+    {
+      title: 'Step 2',
+      content: (
+        <div>
+          <Title level={4}>Configuration</Title>
+          <Paragraph>This is the second step where you configure settings.</Paragraph>
+        </div>
+      ),
+    },
+    {
+      title: 'Step 3',
+      content: (
+        <div>
+          <Title level={4}>Complete</Title>
+          <Paragraph>This is the final step. Click finish to complete.</Paragraph>
+        </div>
+      ),
+    },
+  ];
+
+  const tourSteps = [
+    {
+      title: 'SpaceX Info',
+      description: 'Click here to view detailed information about SpaceX.',
+      target: () => infoButtonRef.current,
+    },
+    {
+      title: 'Stepper Modal',
+      description: 'Click here to open a multi-step process modal.',
+      target: () => stepperButtonRef.current,
+    },
+    {
+      title: 'Roadster Details',
+      description: 'View details about Elon Musk\'s Tesla Roadster in space.',
+      target: () => cardRef.current,
+    },
+  ];
 
   useEffect(() => {
     const fetchRoadsterDetails = async () => {
@@ -87,10 +165,40 @@ const Home = () => {
         </Button>
       </Drawer>
       <Space>
-        <Button type="primary" onClick={() => showDrawer()}>
+        <Button type="primary" ref={infoButtonRef} onClick={() => showDrawer()}>
           Show Info
         </Button>
+        <Button type="default" ref={stepperButtonRef} onClick={showModal}>
+          Open Stepper
+        </Button>
+        <Button type="dashed" onClick={() => setTourOpen(true)}>
+          Start Tour
+        </Button>
       </Space>
+
+      <Tour open={tourOpen} onClose={() => setTourOpen(false)} steps={tourSteps} />
+
+      <Modal
+        title="Multi-Step Process"
+        open={modalOpen}
+        onOk={handleModalOk}
+        onCancel={handleModalCancel}
+        footer={[
+          <Button key="back" onClick={handlePrevious} disabled={step === 0}>
+            Previous
+          </Button>,
+          <Button key="cancel" onClick={handleModalCancel}>
+            Cancel
+          </Button>,
+          <Button key="submit" type="primary" onClick={handleModalOk}>
+            {step === 2 ? 'Finish' : 'Next'}
+          </Button>,
+        ]}
+      >
+        <Steps current={step} items={steps.map(item => ({ title: item.title }))} style={{ marginBottom: 24 }} />
+        <div>{steps[step].content}</div>
+      </Modal>
+
       <p>
         Welcome to the SpaceX API app. This app is built using React, Redux,
         Redux-toolkit and Ant Design. The app fetches data from the SpaceX API
@@ -101,7 +209,7 @@ const Home = () => {
         <Loader />
       ) : (
         roadsterDetails && (
-          <Card title="Elon Musk's Tesla Roadster">
+          <Card ref={cardRef} title="Elon Musk's Tesla Roadster">
             <Title level={4}>Launch Date (UTC):</Title>
             <Paragraph>{roadsterDetails.launch_date_utc}</Paragraph>
             <Title level={4}>Launch Mass (kg):</Title>
